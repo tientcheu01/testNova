@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prix SJI INNOVA 2026 - Université Saint Jean Ingénieur</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           VARIABLES & RESET
+           ========================================= */
+        :root {
+            --color-blue: #0D3B66;
+            --color-yellow: #FAF0CA;
+            --color-orange: #EE6C4D;
+            --color-gold: #F4D35E;
+            --color-white: #ffffff;
+            --font-title: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Roboto Mono', monospace;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* =========================================
+           LOADER
+           ========================================= */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--color-blue);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader-content svg {
+            width: 80px;
+            height: 80px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 10px var(--color-gold)); }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* =========================================
+           HEADER
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: var(--color-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 0.8rem 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--color-gold);
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: var(--font-title);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--color-white);
+            letter-spacing: 1px;
+        }
+
+        .logo-container:hover .logo-svg {
+            filter: drop-shadow(0 0 8px var(--color-gold));
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--color-white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-orange);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        .btn-nav {
+            background: var(--color-orange);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        
+        .btn-nav::after { display: none; }
+        .btn-nav:hover {
+            background: var(--color-gold);
+            color: var(--color-blue);
+        }
+
+        /* Mobile Menu */
+        .hamburger { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.7)), url('assets/images/ChatGPT Image 21 déc. 2025, 03_31_38.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: var(--color-white);
+            z-index: 2;
+        }
+
+        .school-logo {
+            max-width: 120px;
+            height: auto;
+            margin: 0 auto 30px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: logoScaleIn 0.8s ease-out 0.2s forwards;
+        }
+
+        @keyframes logoScaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            opacity: 0; /* JS Animation */
+            transform: scale(0.9);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            color: var(--color-yellow);
+            opacity: 0;
+            transform: translateY(20px);
+            font-weight: 500;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .cta-button, .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            padding: 15px 35px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cta-button {
+            background: var(--color-orange);
+        }
+
+        .cta-button:hover {
+            background: var(--color-gold);
+            color: var(--color-blue);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(238, 108, 77, 0.4);
+        }
+
+        .download-button {
+            background: transparent;
+            border: 2px solid var(--color-yellow);
+            color: var(--color-yellow);
+        }
+
+        .download-button:hover {
+            background: var(--color-yellow);
+            color: var(--color-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(250, 240, 202, 0.3);
+        }
+
+        /* Particles decoration (Simple CSS dots) */
+        .particle {
+            position: absolute;
+            background: var(--color-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* =========================================
+           SECTIONS GENERAL
+           ========================================= */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            color: var(--color-blue);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--color-orange);
+            margin: 10px auto 0;
+        }
+
+        /* Reveal Animation Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           A PROPOS - SECTION
+           ========================================= */
+        #about {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+            position: relative;
+            padding: 100px 10% !important;
+            border-bottom: 1px solid rgba(13, 59, 102, 0.1);
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(238, 108, 77, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #about::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(244, 211, 94, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 0;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-logo-container {
+            flex: 0 0 auto;
+            max-width: 240px;
+            padding: 35px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(13, 59, 102, 0.15);
+            border: 2px solid rgba(238, 108, 77, 0.2);
+            transition: var(--transition);
+            animation: slideInLeft 0.8s ease-out;
+            position: relative;
+        }
+
+        .about-logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--color-orange), var(--color-gold));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-logo-container:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 70px rgba(13, 59, 102, 0.25);
+            border-color: rgba(238, 108, 77, 0.4);
+        }
+
+        .about-logo-container:hover::before {
+            opacity: 0.1;
+        }
+
+        .about-logo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .about-title-section {
+            flex: 1;
+            min-width: 320px;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-title-section h2 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            color: var(--color-blue);
+            margin-bottom: 25px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .about-title-section p {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           LES TROIS PILIERS - SECTION
+           ========================================= */
+        #pillars {
+            background: linear-gradient(135deg, #f5f7fb 0%, #ffffff 100%);
+            position: relative;
+            padding: 100px 10% !important;
+        }
+
+        #pillars::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(238, 108, 77, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        #pillars::after {
+            content: '';
+            position: absolute;
+            bottom: -5%;
+            right: -5%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(244, 211, 94, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #pillars .section-title {
+            color: var(--color-blue);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pillars-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 70px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(13, 59, 102, 0.08);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-orange), var(--color-gold));
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(238, 108, 77, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(13, 59, 102, 0.15);
+            border: 1px solid rgba(238, 108, 77, 0.2);
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .icon-box {
+            font-size: 3.2rem;
+            color: var(--color-orange);
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(238, 108, 77, 0.12) 0%, rgba(244, 211, 94, 0.08) 100%);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .icon-box {
+            background: linear-gradient(135deg, rgba(238, 108, 77, 0.2) 0%, rgba(244, 211, 94, 0.15) 100%);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-title);
+            margin-bottom: 15px;
+            color: var(--color-blue);
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           TIMELINE
+           ========================================= */
+        #timeline {
+            background-color: var(--color-blue);
+            color: white;
+        }
+        #timeline .section-title { color: white; }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Vertical Line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgba(255,255,255,0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item.left { left: 0; text-align: right; }
+        .timeline-item.right { left: 50%; }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        /* Dots */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--color-gold);
+            border: 4px solid var(--color-orange);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: var(--color-blue);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           CRITERES & RECOMPENSES
+           ========================================= */
+        .criteria-rewards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .criteria-col, .rewards-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .criteria-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: 600;
+        }
+
+        .percentage {
+            color: var(--color-orange);
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+
+        /* =========================================
+           SECTION CRITÈRES
+           ========================================= */
+        .criteria-section {
+            background: linear-gradient(135deg, #f8f9fb 0%, #f3f4f7 100%);
+            padding: 100px 10%;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .criteria-box {
+            display: grid;
+            gap: 40px;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(13, 59, 102, 0.1);
+        }
+
+        .skill-bar {
+            margin-bottom: 0;
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--color-orange);
+            min-width: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(238, 108, 77, 0.1) 0%, rgba(244, 211, 94, 0.1) 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-info h4 {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--color-blue);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .skill-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .skill-bar .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--color-blue);
+            display: none;
+        }
+
+        .skill-bar .bar {
+            width: 100%;
+            height: 14px;
+            background: linear-gradient(90deg, #f0f0f0 0%, #e8e8e8 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-bar .line {
+            display: block;
+            height: 100%;
+            border-radius: 10px;
+            animation: barFill 2s ease-out forwards;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-bar .line::after {
+            content: attr(data-percentage);
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-family: var(--font-mono);
+        }
+
+        @keyframes barFill {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: var(--width, 100%);
+                opacity: 1;
+            }
+        }
+
+        /* =========================================
+           SECTION RÉCOMPENSES
+           ========================================= */
+        .rewards-section {
+            background: linear-gradient(135deg, var(--color-blue) 0%, #0a2d4d 100%);
+            padding: 100px 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rewards-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(244, 211, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .rewards-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(238, 108, 77, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .rewards-section .section-title {
+            color: white;
+        }
+
+        .rewards-section .section-title::after {
+            background: var(--color-gold);
+        }
+
+        .rewards-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reward-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .reward-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+        }
+
+        .reward-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .gold-card::before {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+        }
+
+        .silver-card::before {
+            background: linear-gradient(90deg, #C0C0C0, #A8A8A8);
+        }
+
+        .bronze-card::before {
+            background: linear-gradient(90deg, #CD7F32, #B87033);
+        }
+
+        .gold-card {
+            transform: scale(1.05);
+            border-color: var(--color-gold);
+            background: linear-gradient(135deg, #fff, #fff9e6);
+            box-shadow: 0 20px 60px rgba(244, 211, 94, 0.3);
+        }
+
+        .gold-card:hover {
+            transform: scale(1.08) translateY(-15px);
+            box-shadow: 0 30px 80px rgba(244, 211, 94, 0.4);
+        }
+
+        .medal-showcase {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .medal-showcase .medal {
+            font-size: 4.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .gold-card .medal {
+            color: #FFD700;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+        }
+
+        .silver-card .medal {
+            color: #C0C0C0;
+            filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.4));
+        }
+
+        .bronze-card .medal {
+            color: #CD7F32;
+            filter: drop-shadow(0 0 10px rgba(205, 127, 50, 0.4));
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--color-orange);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(238, 108, 77, 0.3);
+        }
+
+        .silver-card .rank-badge,
+        .bronze-card .rank-badge {
+            background: var(--color-blue);
+        }
+
+        .reward-content h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--color-blue);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .amount-display {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--color-orange);
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .gold-card .amount-display {
+            color: #FFD700;
+        }
+
+        .perks-list {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .perks-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #666;
+            font-weight: 500;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .perks-list li:hover {
+            background: rgba(238, 108, 77, 0.1);
+            color: var(--color-orange);
+        }
+
+        .gold-card .perks-list li:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+        }
+
+        .perks-list i {
+            color: var(--color-orange);
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+
+        .gold-card .perks-list i {
+            color: #FFD700;
+        }
+
+        /* =========================================
+           JURY
+           ========================================= */
+        .jury-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .jury-member {
+            text-align: center;
+            width: 200px;
+        }
+
+        .jury-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-orange);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .jury-member:hover .jury-img {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(238, 108, 77, 0.5);
+        }
+
+        .jury-name {
+            font-family: var(--font-title);
+            font-weight: 700;
+            color: var(--color-blue);
+        }
+
+        .jury-role {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* =========================================
+           FINAL CTA - CALL TO ACTION
+           ========================================= */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-orange) 0%, #ff8b6d 100%);
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .final-cta h2 {
+            font-family: var(--font-title);
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary, .cta-btn-secondary {
+            padding: 16px 40px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid transparent;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: var(--color-orange);
+            border-color: white;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: var(--color-yellow);
+            color: var(--color-orange);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: var(--color-orange);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background: var(--color-blue);
+            color: white;
+            padding: 60px 10% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-title);
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover { color: var(--color-orange); }
+
+        .social-links { margin-top: 15px; }
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        /* Amélioration Section About */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(13, 59, 102, 0.1);
+}
+.card-glow {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(244,211,94,0.1) 0%, transparent 70%);
+    opacity: 0; transition: 0.5s; pointer-events: none;
+}
+.feature-card:hover .card-glow { opacity: 1; }
+
+        /* Styles Progress Bars */
+        .sub-title {
+            font-family: var(--font-title);
+            color: var(--color-blue);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            border-left: 5px solid var(--color-orange);
+            padding-left: 15px;
+        }
+
+        .criteria-box {
+            background: linear-gradient(135deg, #f9f9f9 0%, #fafbfc 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(13, 59, 102, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-bar {
+            margin-bottom: 30px;
+        }
+
+        .skill-bar .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--color-blue);
+        }
+
+        .skill-bar .bar {
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-bar .line {
+            display: block;
+            height: 100%;
+            border-radius: 10px;
+            animation: barFill 2s ease-out forwards;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-bar .line::after {
+            content: attr(data-percentage);
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-mono);
+        }
+
+        @keyframes barFill {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: var(--width, 100%);
+                opacity: 1;
+            }
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero-title { 
+                font-size: 2.2rem; 
+            }
+
+            .hero-buttons-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button, .download-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .criteria-section {
+                padding: 60px 5%;
+            }
+
+            .criteria-box {
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .skill-bar {
+                margin-bottom: 0;
+            }
+
+            .skill-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .rewards-section {
+                padding: 60px 5%;
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gold-card {
+                transform: scale(1);
+            }
+
+            .gold-card:hover {
+                transform: scale(1.02) translateY(-10px);
+            }
+
+            .reward-card {
+                padding: 30px 20px;
+            }
+
+            .medal-showcase .medal {
+                font-size: 3.5rem;
+            }
+
+            .final-cta {
+                padding: 60px 20px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .final-cta p {
+                font-size: 1rem;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-btn-primary, .cta-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .timeline-container::after { 
+                left: 31px; 
+            }
+
+            .timeline-item { 
+                width: 100%; 
+                padding-left: 70px; 
+                padding-right: 25px; 
+            }
+
+            .timeline-item.left, .timeline-item.right { 
+                left: 0; 
+                text-align: left; 
+            }
+
+            .timeline-item::after { 
+                left: 21px; 
+            }
+            
+            nav ul { 
+                display: none; 
+            }
+
+            .hamburger { 
+                display: block;
+                margin-left: auto; /* pousse le bouton à l'extrémité droite */
+                margin-right: 12px; /* ajoute un léger espace depuis le bord droit */
+                padding: 8px; /* augmente la zone cliquable */
+                border-radius: 8px; /* ergonomie tactile */
+            }
+            /* Aligner le contenu pour que le hamburger soit le dernier visible */
+            header { justify-content: flex-start; }
+            
+            .header-nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--color-blue);
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 15C36.2 15 25 26.2 25 40C25 51 32 60 40 64V75C40 77.8 42.2 80 45 80H55C57.8 80 60 77.8 60 75V64C68 60 75 51 75 40C75 26.2 63.8 15 50 15ZM52.5 55L45 50L55 45L47.5 40L55 35" stroke="#F4D35E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M35 85H65" stroke="#EE6C4D" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="40" r="28" stroke="#0D3B66" stroke-width="2" stroke-dasharray="4 4"/>
+            </svg>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10C33.4 10 20 23.4 20 40C20 53.5 28.5 65 40 70V82C40 85.3 42.7 88 46 88H54C57.3 88 60 85.3 60 82V70C71.5 65 80 53.5 80 40C80 23.4 66.6 10 50 10Z" fill="#F4D35E" fill-opacity="0.2" stroke="#F4D35E" stroke-width="3"/>
+                <path d="M50 25V45" stroke="#EE6C4D" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 45L40 35M50 45L60 35" stroke="#EE6C4D" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="50" cy="40" r="35" stroke="#0D3B66" stroke-width="2" stroke-dasharray="5 5"/>
+                <rect x="42" y="82" width="16" height="6" rx="2" fill="#0D3B66"/>
+            </svg>
+            <span class="logo-text">SJI INNOVA 2026</span>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul class="header-nav">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">Le Concours</a></li>
+                <li><a href="#timeline">Calendrier</a></li>
+                <li><a href="inscription.html" class="btn-nav">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="particle" style="top:20%; left:10%; width:10px; height:10px;"></div>
+        <div class="particle" style="top:70%; left:80%; width:15px; height:15px; animation-delay: 1s;"></div>
+        <div class="particle" style="top:40%; left:60%; width:8px; height:8px; animation-delay: 2s;"></div>
+
+        <div class="hero-content">
+        
+            <h1 class="hero-title">PRIX SJI INNOVA 2026</h1>
+            <p class="hero-subtitle">Révélez votre créativité et développez les solutions technologiques de demain.</p>
+            <div class="hero-buttons-group">
+                <a href="inscription.html" class="cta-button">S'inscrire maintenant <i class="fas fa-arrow-right"></i></a>
+                <a href="CONCOURS SJI INNOVA 2026.pdf" class="download-button"><i class="fas fa-download"></i> Guide de l'événement</a>
+            </div>
+        </div>
+    </section>
+<section id="about">
+    <div class="about-header">
+        <div class="about-logo-container reveal">
+            <img src="assets/images/Logo-Institut-USJ-INGENIEUR-transparent-768x301 (3).png" alt="Université Saint Jean Ingénieur">
+        </div>
+        <div class="about-title-section reveal">
+            <h2>À propos du concours</h2>
+            <p>Le Prix SJI INNOVA est une initiative du responsable du Campus d’Etok-Koss de l'Université Saint Jean Ingénieur. Ce concours est destinée à valoriser l'innovation, l'entrepreneuriat et l'esprit créatif des étudiants. C'est une plateforme unique où vos idées peuvent se transformer en projets réels et impactants.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pillars">
+    <h2 class="section-title reveal">Les Trois Piliers du Concours</h2>
+    <p class="pillars-subtitle reveal">Découvrez les valeurs fondamentales qui animent notre concours</p>
+
+    <div class="features-grid">
+        <div class="feature-card reveal">
+            <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
+            <h3>Innovation</h3>
+            <p>Encourager les étudiants à développer des solutions technologiques innovantes répondant à des besoins réels.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="icon-box"><i class="fas fa-rocket"></i></div>
+            <h3>Entrepreneuriat</h3>
+            <p>Favoriser la culture entrepreneuriale et la valorisation de la recherche dans un cadre académique.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="icon-box"><i class="fas fa-users"></i></div>
+            <h3>Esprit d'équipe</h3>
+            <p>Ouvert aux étudiants du Campus Saint Jean Ingénieur, en individuel ou en équipe de 2 à 5 personnes.</p>
+        </div>
+    </div>
+</section>
+
+    <section id="timeline">
+        <h2 class="section-title reveal">Les Phases Clés</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item left reveal">
+                <div class="timeline-content">
+                    <span class="date-badge">19 Jan - 20 Fév</span>
+                    <h3>Lancement & Dépôt</h3>
+                    <p>Inscription des équipes et soumission des dossiers de projets.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right reveal">
+                <div class="timeline-content">
+                    <span class="date-badge" style="background: var(--color-orange);">20 - 27 Fév</span>
+                    <h3>Évaluation</h3>
+                    <p>Présélection des meilleurs projets par le jury technique.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left reveal">
+                <div class="timeline-content">
+                    <span class="date-badge" style="background: var(--color-gold); color: #333;">11 Mars 2026</span>
+                    <h3>La Grande Finale</h3>
+                    <p>Cérémonie de remise des prix au Campus d’Etok-Koss.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION CRITÈRES D'ÉVALUATION -->
+    <section id="criteria" class="criteria-section">
+        <div class="section-container">
+            <h2 class="section-title reveal">Grille d'Évaluation</h2>
+            <p class="section-subtitle reveal">Découvrez les critères sur lesquels votre projet sera jugé par nos experts</p>
+            
+            <div class="criteria-box reveal">
+                <div class="skill-bar" data-percentage="30">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="skill-info">
+                            <h4>Originalité et innovation</h4>
+                            <p>Votre idée apporte-t-elle une solution nouvelle et créative ?</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <span class="line" style="width: 0%; background: linear-gradient(90deg, var(--color-orange), #ff8b6d);">
+                            <span class="bar-shine"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-bar" data-percentage="25">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="skill-info">
+                            <h4>Faisabilité technique</h4>
+                            <p>Votre solution est-elle techniquement réalisable ?</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <span class="line" style="width: 0%; background: linear-gradient(90deg, var(--color-gold), #ffdd7a);">
+                            <span class="bar-shine"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-bar" data-percentage="25">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="skill-info">
+                            <h4>Impact potentiel</h4>
+                            <p>Quel est le potentiel d'impact de votre projet ?</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <span class="line" style="width: 0%; background: linear-gradient(90deg, #00b4d8, #48cae4);">
+                            <span class="bar-shine"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-bar" data-percentage="20">
+                    <div class="skill-header">
+                        <div class="skill-icon"><i class="fas fa-chalkboard" aria-hidden="true"></i></div>
+                        <div class="skill-info">
+                            <h4>Qualité de la présentation</h4>
+                            <p>Comment présentez-vous votre projet aux jurés ?</p>
+                        </div>
+                    </div>
+                    <div class="bar">
+                        <span class="line" style="width: 0%; background: linear-gradient(90deg, var(--color-blue), #1e5a8e);">
+                            <span class="bar-shine"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION RÉCOMPENSES ET DISTINCTIONS -->
+    <section id="rewards" class="rewards-section">
+        <div class="section-container">
+            <h2 class="section-title reveal">Récompenses & Distinctions</h2>
+            <p class="section-subtitle reveal">Des prix exceptionnels attendent les trois meilleures équipes</p>
+            
+            <div class="rewards-grid reveal">
+                <div class="reward-card gold-card">
+                    <div class="medal-showcase">
+                        <i class="fas fa-medal medal"></i>
+                        <div class="rank-badge">1er</div>
+                    </div>
+                    <div class="reward-content">
+                        <h3>Excellence</h3>
+                        <div class="amount-display">100 000 FCFA</div>
+                        <ul class="perks-list">
+                            <li><i class="fas fa-trophy"></i> Trophée Or</li>
+                            <li><i class="fas fa-rocket"></i> Accompagnement incubation</li>
+                            <li><i class="fas fa-star"></i> Visibilité au près des entreprise</li>
+                            <li><i class="fas fa-users"></i> Mentoring personnalisé</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reward-card silver-card">
+                    <div class="medal-showcase">
+                        <i class="fas fa-medal medal"></i>
+                        <div class="rank-badge">2e</div>
+                    </div>
+                    <div class="reward-content">
+                        <h3>Innovation</h3>
+                        <div class="amount-display">50 000 FCFA</div>
+                        <ul class="perks-list">
+                            <li><i class="fas fa-certificate"></i> Certificat de participation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reward-card bronze-card">
+                    <div class="medal-showcase">
+                        <i class="fas fa-medal medal"></i>
+                        <div class="rank-badge">3e</div>
+                    </div>
+                    <div class="reward-content">
+                        <h3>Espoir</h3>
+                        <div class="amount-display">25 000 FCFA</div>
+                        <ul class="perks-list">
+                            <li><i class="fas fa-certificate"></i> Certificat de participation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta reveal">
+        <div class="final-cta-content">
+            <h2><i class="fas fa-star"></i> Prêt à innover ?</h2>
+            <p>Rejoignez des centaines d'étudiants talentueux dans cette compétition d'innovation unique. Présentez votre meilleure idée et transformez-la en réalité avec notre accompagnement.</p>
+            <div class="final-cta-buttons">
+                <a href="inscription.html" class="cta-btn-primary">
+                    <i class="fas fa-pencil-alt"></i> S'inscrire maintenant
+                </a>
+                <a href="#about" class="cta-btn-secondary">
+                    <i class="fas fa-info-circle"></i> En savoir plus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+        
+            &copy; 2026 Université Saint Jean Ingénieur. Tous droits réservés.
+            Website by Mr Marvin
+        </div>
+    </footer>
+    
+    <script>
+        // 1. Loader Animation
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const heroTitle = document.querySelector('.hero-title');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            const heroButtons = document.querySelector('.hero-buttons-group');
+
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // Trigger Hero Animations
+                setTimeout(() => {
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'scale(1)';
+                    heroTitle.style.transition = 'all 0.8s ease';
+                }, 300);
+
+                setTimeout(() => {
+                    heroSubtitle.style.opacity = '1';
+                    heroSubtitle.style.transform = 'translateY(0)';
+                    heroSubtitle.style.transition = 'all 0.8s ease';
+                }, 600);
+
+                setTimeout(() => {
+                    heroButtons.style.opacity = '1';
+                    heroButtons.style.transform = 'translateY(0)';
+                    heroButtons.style.transition = 'all 0.8s ease';
+                }, 900);
+
+            }, 800);
+        });
+
+        // 2. Sticky Header
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => observer.observe(el));
+
+        // 4. Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navUl = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+            // Basic styling for mobile menu toggle handled in CSS media query
+            if(navUl.style.display === 'flex') {
+                navUl.style.display = '';
+            } else {
+                // Allows CSS to take over
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.header-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 768) {
+                    navUl.classList.remove('active');
+                }
+            });
+        });
+
+        // 5. Progress Bars Animation with Percentage Display
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        const barAnimationCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target.querySelector('.line');
+                    const percentage = entry.target.getAttribute('data-percentage');
+                    
+                    if (bar && percentage) {
+                        // Set the width dynamically
+                        bar.style.setProperty('--width', percentage + '%');
+                        bar.setAttribute('data-percentage', percentage + '%');
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const barOptions = {
+            threshold: 0.5,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const barObserver = new IntersectionObserver(barAnimationCallback, barOptions);
+        skillBars.forEach(bar => barObserver.observe(bar));
+
+    </script>
+</body>
+</html>
