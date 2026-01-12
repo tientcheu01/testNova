@@ -605,76 +605,68 @@
            RESPONSIVE
            ========================================= */
         @media (max-width: 768px) {
+            /* Page header smaller on mobile */
             .page-header {
                 padding-top: 100px;
-                padding-bottom: 60px;
+                padding-bottom: 40px;
+                text-align: left;
+                padding-left: 6%;
+                padding-right: 6%;
             }
 
             .page-header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .page-header p {
-                font-size: 1rem;
+                font-size: 0.98rem;
             }
 
+            /* Layout: single column stack */
             .container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px 60px;
+            }
 
-                /* Inputs at least 16px to avoid mobile zoom */
-                input[type="text"],
-                input[type="email"],
-                input[type="tel"],
-                select,
-                textarea { font-size: 16px; }
-
-                /* Two columns stack on mobile */
-                .two-cols { grid-template-columns: 1fr; gap: 12px; }
-
-                /* Navigation buttons full width on mobile */
-                .form-navigation { flex-direction: column; gap: 12px; }
-                .btn-secondary, .btn-submit { width: 100%; }
-                gap: 30px;
-                padding: 0 20px 60px;
-                    flex-direction: column;
+            /* Form wrapper full width and tighter padding */
             .form-wrapper {
-                padding: 30px 20px;
-            }
-                    width: 100%;
-                    min-width: auto;
-                flex-direction: row;
-                flex-wrap: wrap;
+                padding: 20px;
             }
 
-            .date-card {
-                flex: 1;
-                min-width: 160px;
+            /* Ensure inputs are readable without zoom */
+            input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+                font-size: 16px;
+                padding: 12px 14px;
             }
 
-            .info-box {
-                width: 100%;
-                .menu-toggle { display: inline-flex; }
-                .nav-links {
-                    display: none;
-                    position: absolute;
-                    top: 60px;
-                    right: 5%;
-                    background: var(--color-blue);
-                    padding: 12px;
-                    border-radius: 10px;
-                    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
-                    flex-direction: column;
-                    gap: 12px;
-                }
-                .nav-links.open { display: flex; }
-            }
-            header {
-                padding: 0.8rem 5%;
-            }
+            /* Two columns collapse */
+            .two-cols { display: block; gap: 12px; }
 
-            nav ul {
-                display: none;
-            }
+            /* Step indicators and progress responsive */
+            .multi-step-header { margin-bottom: 18px; }
+            .progress { height: 8px; }
+            .steps-indicators { font-size: 0.85rem; gap: 8px; display:flex; flex-wrap:wrap; }
+            .step-indicator { padding: 6px 8px; font-size:0.78rem; }
+
+            /* Form navigation stack and full-width buttons */
+            .form-navigation { flex-direction: column; gap: 12px; }
+            .btn-secondary, .btn-submit { width: 100%; }
+
+            /* File upload smaller */
+            .file-upload-wrapper { padding: 20px 12px; }
+            .file-msg i { font-size: 2rem; }
+
+            /* Sidebar collapse: make cards full width and stack under form */
+            .sidebar { order: 2; }
+            .date-card, .info-box { width: 100%; }
+
+            /* Header: show mobile menu toggle and hide full nav */
+            .menu-toggle { display: inline-flex; }
+            nav ul { display: none; }
+
+            /* Reduce footer padding on small screens */
+            footer { padding: 40px 6% 20px; }
         }
     </style>
 </head>
