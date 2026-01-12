@@ -721,103 +721,162 @@
         
         <main>
             <div class="form-wrapper">
-                <!-- MODIFICATION ICI : Mise à jour de l'action avec votre email FormSubmit -->
                 <form action="https://formsubmit.co/d99fe1f7a46078e5d703d4100a630869" method="POST" enctype="multipart/form-data" id="applicationForm">
 
-                    <!-- MODIFICATION ICI : Ajout des champs cachés pour FormSubmit -->
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://campus-event-three.vercel.app/merci.html">
+                    <input type="hidden" name="_next" value="merci.html">
                     <input type="hidden" name="_subject" value="Nouvelle candidature - Prix SJI INNOVA 2026">
                     <input type="hidden" name="_template" value="table">
 
                     <div class="multi-step-header">
                         <div class="progress" aria-hidden>
-                            <div class="progress-bar" id="progressBar" style="width:33%;"></div>
+                            <div class="progress-bar" id="progressBar" style="width:20%;"></div>
                         </div>
                         <div class="steps-indicators">
-                            <div class="step-indicator active" data-step="1">1. Personnel</div>
-                            <div class="step-indicator" data-step="2">2. Projet</div>
-                            <div class="step-indicator" data-step="3">3. Pièces & Validation</div>
+                            <div class="step-indicator active" data-step="1">1. Infos générales</div>
+                            <div class="step-indicator" data-step="2">2. Problématique</div>
+                            <div class="step-indicator" data-step="3">3. Solution</div>
+                            <div class="step-indicator" data-step="4">4. Faisabilité & Impacts</div>
+                            <div class="step-indicator" data-step="5">5. Pièces & Engagement</div>
                         </div>
                     </div>
 
                     <div class="form-steps">
                         <!-- STEP 1 -->
                         <div class="form-step active" data-step="1">
-                            <h3 class="form-section-title"><i class="fas fa-user"></i> Informations Personnelles</h3>
-
+                            <h3 class="form-section-title"><i class="fas fa-user"></i> 1 — Informations générales</h3>
                             <div class="form-group">
-                                <label for="fullname">Nom & Prénom(s) *</label>
-                                <!-- MODIFICATION ICI : Changement du nom du champ pour correspondre à votre premier formulaire -->
-                                <input type="text" id="fullname" name="nom" placeholder="Ex: Marco Atangana" required>
+                                <label for="titre_projet">Titre du projet *</label>
+                                <input type="text" id="titre_projet" name="titre_projet" required>
                             </div>
-
+                            <div class="form-group">
+                                <label for="porteurs">Nom(s) et prénom(s) du ou des porteurs *</label>
+                                <input type="text" id="porteurs" name="porteurs" required>
+                            </div>
                             <div class="two-cols">
                                 <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <!-- MODIFICATION ICI : Changement du nom du champ pour correspondre à votre premier formulaire -->
-                                    <input type="email" id="email" name="email" placeholder="etudiant@institutsaintjean.org" required>
+                                    <label for="filieres">Filière(s) / Niveau(x) *</label>
+                                    <input type="text" id="filieres" name="filieres_niveaux" placeholder="Ex: Génie Informatique / L3" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Téléphone *</label>
-                                    <!-- MODIFICATION ICI : Changement du nom du champ pour correspondre à votre premier formulaire -->
-                                    <input type="tel" id="phone" name="telephone" placeholder="+237 6XX XX XX XX" required>
+                                    <label>Participation *</label>
+                                    <div style="display:flex; gap:12px; align-items:center;">
+                                        <label><input type="radio" name="participation" value="Individuelle" required> Individuelle</label>
+                                        <label><input type="radio" name="participation" value="En équipe"> En équipe</label>
+                                    </div>
+                                    <input type="number" id="nombre_membres" name="nombre_membres" min="1" placeholder="Nombre de membres" style="width:140px; margin-top:8px; display:none;">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="level">Niveau d'étude *</label>
-                                <!-- MODIFICATION ICI : Conservation du nom original pour garder la structure -->
-                                <select id="level" name="niveau" required>
-                                    <option value="" disabled selected>Choisir votre niveau...</option>
-                                    <option value="Licence 1">Licence 1</option>
-                                    <option value="Licence 2">Licence 2</option>
-                                    <option value="Licence 3">Licence 3</option>
-                                </select>
+                                <label for="encadreur">Encadreur (si applicable)</label>
+                                <input type="text" id="encadreur" name="encadreur">
                             </div>
                         </div>
 
                         <!-- STEP 2 -->
                         <div class="form-step" data-step="2">
-                            <h3 class="form-section-title"><i class="fas fa-lightbulb"></i> Détails du Projet</h3>
-
+                            <h3 class="form-section-title"><i class="fas fa-search"></i> 2 — Problématique</h3>
                             <div class="form-group">
-                                <label for="projectTitle">Titre du projet *</label>
-                                <input type="text" id="projectTitle" name="titre_projet" placeholder="Ex: Système d'irrigation IoT..." required>
+                                <label for="problematique">Problématique (contexte, limites des solutions existantes) *</label>
+                                <textarea id="problematique" name="problematique" rows="5" required></textarea>
                             </div>
-
                             <div class="form-group">
-                                <label for="objectives">Objectifs & Problématique *</label>
-                                <textarea id="objectives" name="objectifs" rows="5" placeholder="Quel problème résolvez-vous ? Quels sont vos objectifs ?" required></textarea>
+                                <label for="objectif_general">Objectif général *</label>
+                                <input type="text" id="objectif_general" name="objectif_general" required>
                             </div>
-
                             <div class="form-group">
-                                <label for="solution">Solution Proposée (Technologie) *</label>
-                                <textarea id="solution" name="solution" rows="5" placeholder="Décrivez votre solution technique, les outils utilisés..." required></textarea>
+                                <label>Objectifs spécifiques</label>
+                                <input type="text" name="objectif_spec1" placeholder="1." required>
+                                <input type="text" name="objectif_spec2" placeholder="2.">
+                                <input type="text" name="objectif_spec3" placeholder="3.">
                             </div>
                         </div>
 
                         <!-- STEP 3 -->
                         <div class="form-step" data-step="3">
-                            <h3 class="form-section-title"><i class="fas fa-file-upload"></i> Pièces & Validation</h3>
-
+                            <h3 class="form-section-title"><i class="fas fa-lightbulb"></i> 3 — Solution proposée</h3>
                             <div class="form-group">
-                                <label for="file">Dossier descriptif (PDF, PPT, Vidéo) *</label>
-                                <div class="file-upload-wrapper" id="fileWrapper">
-                                    <input type="file" id="file" name="fichier_joint" accept=".pdf, .ppt, .pptx, .mp4, .zip" required>
-                                    <div class="file-msg">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                        Glissez votre fichier ou cliquez ici (Max 10MB)
-                                    </div>
-                                </div>
-                                <small id="fileName" style="color: var(--color-orange); display:block; margin-top:5px; font-weight:600;"></small>
+                                <label for="principe">Principe de fonctionnement / Description technique générale *</label>
+                                <textarea id="principe" name="principe_fonctionnement" rows="5" required></textarea>
                             </div>
-
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">Je certifie être étudiant inscrit à l'Université Saint Jean Ingénieur et j'accepte le <a href="index.html#about" style="color:var(--color-blue); text-decoration:underline;">règlement du concours</a>.</label>
+                            <div class="form-group">
+                                <label for="innovation_apportee">Innovation apportée</label>
+                                <textarea id="innovation_apportee" name="innovation_apportee" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="caractere_innovant">Caractère innovant *</label>
+                                <textarea id="caractere_innovant" name="caractere_innovant" rows="4" required></textarea>
                             </div>
                         </div>
+
+                        <!-- STEP 4 -->
+                        <div class="form-step" data-step="4">
+                            <h3 class="form-section-title"><i class="fas fa-cogs"></i> 4 — Faisabilité & Impacts</h3>
+                            <div class="form-group">
+                                <label for="faisabilite_technique">Faisabilité technique (technologies, compétences, moyens)</label>
+                                <textarea id="faisabilite_technique" name="faisabilite_technique" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="faisabilite_operationnelle">Faisabilité opérationnelle (conditions, contraintes)</label>
+                                <textarea id="faisabilite_operationnelle" name="faisabilite_operationnelle" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Impacts attendus</label>
+                                <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px;">
+                                    <label><input type="checkbox" name="impact_social"> Social</label>
+                                    <label><input type="checkbox" name="impact_economique"> Économique</label>
+                                    <label><input type="checkbox" name="impact_environnemental"> Environnemental</label>
+                                    <label><input type="checkbox" name="impact_academique"> Académique / technologique</label>
+                                </div>
+                                <label for="description_impacts">Description des impacts</label>
+                                <textarea id="description_impacts" name="description_impacts" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- STEP 5 -->
+                        <div class="form-step" data-step="5">
+                            <h3 class="form-section-title"><i class="fas fa-file-upload"></i> 5 — Pièces & Engagement</h3>
+                            <div class="form-group">
+                                <label>Éléments complémentaires joints (cochez)</label>
+                                <div style="display:flex; gap:12px; flex-direction:column; margin-bottom:8px;">
+                                    <label><input type="checkbox" name="joint_ppt"> Présentation PowerPoint</label>
+                                    <label><input type="checkbox" name="joint_video"> Vidéo explicative (2 à 3 minutes)</label>
+                                    <label><input type="checkbox" name="joint_maquette"> Maquette / Prototype</label>
+                                    <label><input type="checkbox" name="joint_plan_tech"> Plan technique</label>
+                                    <label><input type="checkbox" name="joint_plan_financier"> Plan financier</label>
+                                    <label><input type="checkbox" name="joint_plan_admin"> Plan administratif</label>
+                                    <label>Autres (préciser) : <input type="text" name="joint_autres"></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="file">Dossier descriptif (PDF, PPT, MP4, ZIP) *</label>
+                                <div class="file-upload-wrapper" id="fileWrapper">
+                                    <input type="file" id="file" name="dossier_joint" accept=".pdf,.ppt,.pptx,.mp4,.zip,.rar" required>
+                                    <div class="file-msg"><i class="fas fa-cloud-upload-alt"></i> Glissez votre fichier ou cliquez ici (Max 20MB)</div>
+                                </div>
+                                <small id="fileName" style="color: var(--color-orange); display:block; margin-top:8px; font-weight:600;"></small>
+                            </div>
+
+                            <fieldset class="form-group">
+                                <legend style="font-weight:700;">9. Engagement</legend>
+                                <p>Je soussigné(e), certifie que le projet présenté est original, personnel et conforme au règlement du concours SJI INNOVA 2026.</p>
+                                <label for="nom_chef">Nom et prénom du chef de projet *</label>
+                                <input type="text" id="nom_chef" name="nom_chef" required>
+
+                                <label for="signature">Signature (nom ou paraphe) *</label>
+                                <input type="text" id="signature" name="signature" required>
+
+                                <label for="date_signature">Date *</label>
+                                <input type="date" id="date_signature" name="date_signature" required>
+                            </fieldset>
+
+                            <div class="checkbox-group" style="align-items:center;">
+                                <input type="checkbox" id="certify" name="certify" required>
+                                <label for="certify">Je certifie que les informations fournies sont exactes et que je respecte le règlement du concours.</label>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="form-navigation">
@@ -900,6 +959,8 @@
             const indicators = Array.from(document.querySelectorAll('.step-indicator'));
             const fileInput = document.getElementById('file');
             const fileNameDisplay = document.getElementById('fileName');
+            const participationRadios = Array.from(document.querySelectorAll('input[name="participation"]'));
+            const nombreMembresInput = document.getElementById('nombre_membres');
 
             let currentStep = 0;
 
@@ -921,6 +982,8 @@
                     if(field.hasAttribute('required')){
                         if(field.type === 'checkbox'){
                             if(!field.checked) valid = false;
+                        } else if(field.type === 'file'){
+                            if(!field.files || !field.files[0]) valid = false;
                         } else if(!field.value || field.value.trim() === ''){
                             valid = false;
                         }
@@ -931,9 +994,8 @@
 
             nextBtn.addEventListener('click', () => {
                 if(!validateStep()){
-                    // brief shake + message
                     const active = steps[currentStep];
-                    active.animate([{ transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
+                    if(active) active.animate([{ transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
                     alert('Veuillez remplir tous les champs obligatoires de cette étape.');
                     return;
                 }
@@ -948,17 +1010,32 @@
                 window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
             });
 
-            // File input display and size check
+            // Participation toggle: afficher le champ nombre de membres si "En équipe"
+            if(nombreMembresInput){
+                nombreMembresInput.style.display = 'none';
+                participationRadios.forEach(r => r.addEventListener('change', (e) => {
+                    if(e.target.value === 'En équipe'){
+                        nombreMembresInput.style.display = 'inline-block';
+                        nombreMembresInput.required = true;
+                    } else {
+                        nombreMembresInput.style.display = 'none';
+                        nombreMembresInput.required = false;
+                        nombreMembresInput.value = '';
+                    }
+                }));
+            }
+
+            // File input display and size check (20MB)
             if(fileInput){
                 fileInput.addEventListener('change', function() {
                     if(this.files && this.files[0]) {
                         const file = this.files[0];
-                        if(file.size > 10 * 1024 * 1024) {
-                            alert('Le fichier est trop volumineux ! Taille maximum : 10MB.');
+                        if(file.size > 20 * 1024 * 1024) {
+                            alert('Le fichier est trop volumineux ! Taille maximum : 20MB.');
                             this.value = '';
-                            fileNameDisplay.textContent = '';
+                            if(fileNameDisplay) fileNameDisplay.textContent = '';
                         } else {
-                            fileNameDisplay.textContent = 'Fichier sélectionné : ' + file.name;
+                            if(fileNameDisplay) fileNameDisplay.textContent = 'Fichier sélectionné : ' + file.name;
                         }
                     }
                 });
