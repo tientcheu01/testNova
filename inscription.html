@@ -11,6 +11,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Vercel Blob SDK -->
+    <script src="https://unpkg.com/@vercel/blob@latest/dist/index.browser.js"></script>
+
     <style>
         /* =========================================
            VARIABLES & RESET (Identique Index)
@@ -1114,14 +1117,14 @@
             }
 
                 // Final submit
-                form.addEventListener('submit', function(e){
+                form.addEventListener('submit', async function(e){
+                e.preventDefault();
+
                 if(currentStep !== steps.length -1){
-                    e.preventDefault();
                     return;
                 }
                 // Validate last step
                 if(!validateStep()){
-                    e.preventDefault();
                     alert('Veuillez compléter les informations manquantes avant de soumettre.');
                     return;
                 }
@@ -1130,7 +1133,6 @@
                     if(fileInput && fileInput.files && fileInput.files[0]){
                         const maxBytes = 18 * 1024 * 1024; // 18 Mo
                         if(fileInput.files[0].size > maxBytes){
-                            e.preventDefault();
                             if(fileError){ fileError.style.display = 'block'; fileError.innerHTML = '<i class="fas fa-exclamation-circle" style="margin-right:8px;color:#d9534f;"></i>Le fichier sélectionné dépasse 18 Mo. Réduisez la taille du fichier ou choisissez un autre fichier.'; }
                             if(submitBtn){ submitBtn.disabled = true; submitBtn.style.opacity = '0.5'; submitBtn.style.pointerEvents = 'none'; }
                             return;
@@ -1142,10 +1144,74 @@
                     submitBtn.style.opacity = '0.8';
                     submitBtn.style.pointerEvents = 'none';
 
-                   
-                    setTimeout(() => {
-                        window.location.href = 'merci.html';
-                    }, 1600);
+                    // Récupérer les données du formulaire
+                    const formData = new FormData(form);
+
+                    // 1. Upload des fichiers vers Vercel Blob
+                    let uploadedFileUrls = [];
+                    const files = fileInput ? Array.from(fileInput.files || []) : [];
+
+                    if (files.length > 0) {
+                        try {
+                            const { put } = await import('https://unpkg.com/@vercel/blob@latest/dist/index.browser.js');
+                            for (const file of files) {
+                                const blobResult = await put(file.name, file, {
+                                    access: 'public',
+                                    token: 'vercel_blob_rw_KbDlrchtwsaqZ3H2_U8S3rl34KjXy5tKakZUcLDZTju3CnB',
+                                });
+                                uploadedFileUrls.push(blobResult.url);
+                            }
+                        } catch (error) {
+                            alert('Erreur lors de l\'upload du fichier : ' + error.message);
+                            submitBtn.innerHTML = 'Valider ma candidature';
+                            submitBtn.style.opacity = '';
+                            submitBtn.style.pointerEvents = '';
+                            return;
+                        }
+                    }
+
+                    // 2. Construire l'objet de données à envoyer
+                    const dataToSend = {};
+                    formData.forEach((value, key) => {
+                        if (key !== 'dossier_joint[]') {
+                            dataToSend[key] = value;
+                        }
+                    });
+                    dataToSend['fichiers_urls'] = uploadedFileUrls;
+
+                    // 3. Vérifier que l'upload a bien eu lieu avant de rediriger
+                    if (files.length > 0 && uploadedFileUrls.length === 0) {
+                        alert('Erreur : les fichiers n\'ont pas pu être envoyés. Veuillez réessayer.');
+                        submitBtn.innerHTML = 'Valider ma candidature';
+                        submitBtn.style.opacity = '';
+                        submitBtn.style.pointerEvents = '';
+                        return;
+                    }
+
+                    // 4. Envoyer les données à l'API
+                    try {
+                        const response = await fetch('/api/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(dataToSend),
+                        });
+
+                        if (response.ok) {
+                            window.location.href = 'merci.html';
+                        } else {
+                            let errorMsg = 'Une erreur est survenue.';
+                            try { const errorData = await response.json(); errorMsg = errorData.message || errorMsg; } catch(_){}
+                            alert('Erreur : ' + errorMsg);
+                            submitBtn.innerHTML = 'Valider ma candidature';
+                            submitBtn.style.opacity = '';
+                            submitBtn.style.pointerEvents = '';
+                        }
+                    } catch (error) {
+                        alert('Problème de connexion : ' + error.message);
+                        submitBtn.innerHTML = 'Valider ma candidature';
+                        submitBtn.style.opacity = '';
+                        submitBtn.style.pointerEvents = '';
+                    }
             });
 
             // init
