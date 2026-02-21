@@ -11,9 +11,6 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Vercel Blob SDK -->
-    <script src="https://unpkg.com/@vercel/blob@latest/dist/index.browser.js"></script>
-
     <style>
         /* =========================================
            VARIABLES & RESET (Identique Index)
@@ -1153,12 +1150,22 @@
 
                     if (files.length > 0) {
                         try {
-                            const { put } = await import('https://unpkg.com/@vercel/blob@latest/dist/index.browser.js');
+                            const BLOB_TOKEN = 'vercel_blob_rw_KbDlrchtwsaqZ3H2_U8S3rl34KjXy5tKakZUcLDZTju3CnB';
                             for (const file of files) {
-                                const blobResult = await put(file.name, file, {
-                                    access: 'public',
-                                    token: 'vercel_blob_rw_KbDlrchtwsaqZ3H2_U8S3rl34KjXy5tKakZUcLDZTju3CnB',
+                                const response = await fetch('https://blob.vercel-storage.com/' + encodeURIComponent(file.name), {
+                                    method: 'PUT',
+                                    headers: {
+                                        'authorization': 'Bearer ' + BLOB_TOKEN,
+                                        'x-api-version': '7',
+                                        'content-type': file.type || 'application/octet-stream',
+                                    },
+                                    body: file,
                                 });
+                                if (!response.ok) {
+                                    const errText = await response.text();
+                                    throw new Error('Échec upload (' + response.status + ') : ' + errText);
+                                }
+                                const blobResult = await response.json();
                                 uploadedFileUrls.push(blobResult.url);
                             }
                         } catch (error) {
