@@ -1195,18 +1195,24 @@
                         return;
                     }
 
-                    // 4. Envoyer les données à l'API
+                    // 4. Envoyer les données texte + URLs des fichiers via FormSubmit.co
                     try {
-                        const response = await fetch('/api/submit', {
+                        // Ajouter les URLs des fichiers uploadés au formulaire
+                        dataToSend['fichiers_urls'] = uploadedFileUrls.join('\n');
+
+                        const response = await fetch('https://formsubmit.co/ajax/d99fe1f7a46078e5d703d4100a630869', {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
                             body: JSON.stringify(dataToSend),
                         });
 
                         if (response.ok) {
                             window.location.href = 'merci.html';
                         } else {
-                            let errorMsg = 'Une erreur est survenue.';
+                            let errorMsg = 'Une erreur est survenue lors de l\'envoi du formulaire.';
                             try { const errorData = await response.json(); errorMsg = errorData.message || errorMsg; } catch(_){}
                             alert('Erreur : ' + errorMsg);
                             submitBtn.innerHTML = 'Valider ma candidature';
